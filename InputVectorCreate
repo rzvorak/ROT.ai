@@ -1,0 +1,24 @@
+import RedditAPI as reddit
+import GoogleInfoMinTo30AfterDecimal as minTo30;
+import GoogleInfoMaxTo30AfterDecimal as maxTo30;
+import pronunciation as pronounce
+import warnings
+
+class TrendPredictionModel():
+    warnings.simplefilter(action='ignore', category=FutureWarning)
+    """
+    Creates an input vector based on 5 metrics
+    """
+    input_vector = [[]]
+    with open('words.txt', 'r') as file:
+        for line in file:
+            if "\n" in line:
+                line = line[:-1]
+            ratio_vector = reddit.testRedditAPI(word = line)
+            min = minTo30.min(word = line)
+            max = maxTo30.max(word = line)
+            pornounce = pronounce.prevalenceScore(ipa = line)
+            input = [line, ratio_vector[0], ratio_vector[1], min, max, pornounce]
+            print(input)
+            input_vector.append(input)
+            
