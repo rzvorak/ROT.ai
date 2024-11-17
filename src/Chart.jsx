@@ -6,20 +6,19 @@ import {
   CategoryScale,
   LinearScale,
   Tooltip,
-  PointElement, // Explicitly register the PointElement
+  PointElement, 
 } from 'chart.js';
 
-// Register the necessary chart components
 ChartJS.register(LineElement, CategoryScale, LinearScale, Tooltip, PointElement);
 
-const Chart = () => {
-  const chartRef = useRef(null); // Create a ref for the chart instance
+const Chart = ({ dataPoints }) => {
+  const chartRef = useRef(null); 
 
   const data = {
     labels: ['1', '2', '3', '4', '5', '6'],
     datasets: [
       {
-        data: [10, 5, 4, 8, 5, 0], // Y-values for the chart
+        data: dataPoints,
         borderColor: '#d4d4d4',
         fill: false,
         pointRadius: 0,
@@ -56,7 +55,6 @@ const Chart = () => {
 
   return (
     <div>
-      {/* Assign the ref to the Line chart */}
       <Line data={data} options={options} ref={chartRef} />
     </div>
   );

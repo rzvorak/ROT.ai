@@ -8,6 +8,7 @@ function Title({ onButtonClick, isTitleSlidingOut, isTitleSlidingIn, onAnimation
   const [error, setError] = useState(null);
 
   const handleInputChange = (event) => {
+    
     setInputValue(event.target.value);
   }
 

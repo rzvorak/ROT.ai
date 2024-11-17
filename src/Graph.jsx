@@ -18,15 +18,34 @@ function Graph({ input, isGraphSlidingIn, isGraphSlidingOut, onButtonClick, onAn
       setFullText("" + fill);
     }, [fill]);
 
+  const initialData = [5, 5, 5, 5, 5, 5];
+  const [chartData, setChartData] = useState(initialData);
+
+  const generateRandomData = () => {
+    const newData = chartData.map((value) => {
+      // Generate random change between -2 and 2
+      const randomChange = Math.random() * 4 - 2;
+      const newValue = value + randomChange;
+
+      // Ensure the value doesn't go below zero
+      return Math.max(0, newValue);
+    });
+
+    // Update the chart data state
+    setChartData(newData);
+  };
+
     
   const handleAnimationEnd = () => {
+    if (input !== "") {
+      generateRandomData(); 
+    }
     onAnimationEnd(); 
     setAnimationEnded(true); 
   };
 
   const handleButtonClick = () => {
     onButtonClick();
-    
   }
 
   useEffect(() => {
@@ -51,7 +70,7 @@ function Graph({ input, isGraphSlidingIn, isGraphSlidingOut, onButtonClick, onAn
                 : isGraphSlidingIn ? "graph-slidein graph" 
                 : "graph"} onAnimationEnd={handleAnimationEnd}>
                 <div className="graph__plot">
-                    <Chart className="graph__chart"/>
+                    <Chart className="graph__chart" dataPoints={chartData}/>
                 </div>
                 <div className="graph__details">
                     <div className="graph__details__set">
