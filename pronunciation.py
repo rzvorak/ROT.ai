@@ -1,8 +1,5 @@
-
 from bs4 import BeautifulSoup
 import requests
-
-
 
 # Function to fetch pronunciation from Wiktionary
 def get_pronunciation_score(word):
@@ -11,7 +8,7 @@ def get_pronunciation_score(word):
   "ɪ" : 3.64, "d" : 3.33, "ɛ" : 3.21, "ð" : 3.14, "k" : 3.10, "m" : 2.99, "aɪ" : 2.97, "w" : 2.77, "z" : 2.75,
   "æ" : 2.25, "b" : 1.9, "o" : 1.85, "p" : 1.79, "v" : 1.74, "e" : 1.57, "f" : 1.55, "ʌ" : 1.46,"ɑ" : 1.43, 
   "h" : 1.31, "g" : 1.18, "u" : 1.13, "y" : 1.09, "ŋ" : 1.08, "ɾ" : 1.03, "ɔ" : 0.77, "u" : 0.76, "θ" : 0.7
-    }
+   }
     # URL of the word on Wiktionary
     url = f'https://en.wiktionary.org/wiki/' + word
 

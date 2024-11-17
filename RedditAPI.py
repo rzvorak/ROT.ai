@@ -1,6 +1,4 @@
-import matplotlib.pyplot as plt
 import datetime
-import pandas as pd
 import praw
 import time
 import os
@@ -39,6 +37,3 @@ def testRedditAPI(word):
         monthly_ratio = c2_total/c2
 
         return [daily_ratio, monthly_ratio]
-
-
-
