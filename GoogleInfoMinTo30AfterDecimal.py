@@ -5,7 +5,7 @@ def min(word):
     # Initialize Google Trends API with specified language and timezone
     pytrends = TrendReq(hl='en-US', tz=360)
 
-    # Get user input for the keyword and capitalize the first letter
+    # Get user input for the keyword
     keyword = word
 
     # Build payload for the keyword over the past year
@@ -36,11 +36,11 @@ def min(word):
             closest_value_30_days = data_after_30_days.iloc[0][keyword]
 
             # Calculate the percentage increase as a decimal
-            percentage_increase_decimal = (closest_value_30_days - min_value) / min_value if min_value > 0 else 0
+            percentage_increase_decimal = (closest_value_30_days - min_value) / min_value if min_value > 0 else 0.0
 
-            # Print percentage increase as a decimal
-            return f"{percentage_increase_decimal:.6f}"
+            # Return percentage increase as a float
+            return float(percentage_increase_decimal)
         else:
-            return "0.000000"  # Output zero if no data is available
+            return 0.0  # Return zero if no data is available
     else:
-        return "0.000000"  # Output zero if no data is available
+        return 0.0  # Return zero if no data is available

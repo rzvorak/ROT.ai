@@ -37,13 +37,14 @@ def fourMonths(word):
                 past_value = past_data.iloc[-1][keyword]
 
                 # Calculate the percentage change
-                percentage_change_decimal = (present_value - past_value) / past_value if past_value > 0 else 0
+                percentage_change_decimal = (present_value - past_value) / past_value if past_value > 0 else 0.0
 
-                return f"{percentage_change_decimal:.6f}"
+                return float(percentage_change_decimal)
             else:
-                return "0.000000"  # Output zero if no data is available
+                return 0.0  # Return zero if no data is available
         else:
-            return "0.000000"  # Output zero if no data is available
+            return 0.0  # Return zero if no data is available
 
     except Exception as e:
         print(f"An error occurred: {e}")
+        return 0.0  # Return zero in case of any error

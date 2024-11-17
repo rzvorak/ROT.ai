@@ -38,9 +38,9 @@ def max(word):
             # Calculate the decrease as a raw numerical double
             decrease = (closest_value_30_days - peak_value) / peak_value
             
-            # Print decrease as a double
-            return f"{decrease:.6f}"  # Output the decrease as a double with six decimal places
+            # Return decrease as a float
+            return float(decrease)
         else:
-            return "0.000000"  # Output zero if no data is available
+            return 0.0  # Return zero if no data is available
     else:
-        return "0.000000"  # Output zero if no data is available
+        return 0.0  # Return zero if no data is available

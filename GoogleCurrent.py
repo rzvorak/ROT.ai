@@ -3,7 +3,7 @@ import pandas as pd
 
 def cur(word):
     if not word.strip():
-        return "0.000000"  # Return zero for empty or invalid word
+        return 0.0  # Return zero for empty or invalid word
 
     try:
         # Initialize Google Trends API with specified language and timezone
@@ -28,13 +28,13 @@ def cur(word):
             if not trends_data.empty:
                 # Get the most recent data point
                 most_recent_point = trends_data.iloc[-1][word]
-                return f"{most_recent_point:.6f}"  # Output the most recent value as a double with six decimal places
+                return float(most_recent_point)  # Return the most recent value as a float
             else:
-                return "0.000000"  # Output zero if no valid data is available
+                return 0.0  # Return zero if no valid data is available
         else:
-            return "0.000000"  # Output zero if no data is available
+            return 0.0  # Return zero if no data is available
 
     except Exception as e:
         # Handle any errors that occur during the request
         print(f"An error occurred: {e}")
-        return "0.000000"
+        return 0.0  # Return zero in case of an exception
