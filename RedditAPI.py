@@ -27,7 +27,7 @@ class Useless:
         start_date = end_date - datetime.timedelta(days=365)  # Look back one year
 
         # Search for the slang word in posts across all subreddits (adjust the limit as needed)
-        for submission in reddit.subreddit('all').search(slang_word, sort='relevance', time_filter='year', limit=500):
+        for submission in reddit.subreddit('all').search(slang_word, sort='controversial', time_filter='year', limit=500):
             # Get the submission's date and convert to datetime
             submission_date = datetime.datetime.utcfromtimestamp(submission.created_utc)
 
