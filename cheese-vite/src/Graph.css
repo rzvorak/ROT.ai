@@ -1,8 +1,6 @@
 .graph{
     width: 85%;
     height: 30rem;
-
-    border: 2px solid green;
     
     position: absolute;
 
@@ -17,14 +15,11 @@
     flex: 3;
     background-color: var(--clr-n600);
 
-    border: 2px solid red;
     overflow: hidden;
-
     border-radius: 1rem;
 }
 
 .graph__details{
-    border: 2px solid orange;
     flex: 1;
 
     display: flex;
@@ -34,13 +29,11 @@
 .graph__details__set{
     flex: 3;
     height: 100%;
-    border: 2px solid blue;
 }
 
 .graph__details__control{
     flex: 1;
     height: 100%;
-    border: 2px solid green;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -55,8 +48,6 @@
 
     margin-top: 1rem;
 
-    border: 2px solid green;
-
     background-color: none;
 }
 
@@ -64,8 +55,6 @@
     width: 2rem;
     height: 2rem;
     color: var(--clr-n400);
-
-    border: 2px solid pink;
 }
 
 .up__icon:hover {
@@ -75,7 +64,6 @@
 
 .graph__text__container{
     margin-top: 1rem;
-    border: 2px solid purple;
 }
 
 .graph__text {
@@ -85,8 +73,6 @@
 
     font-weight: 300;
 }
-
-
 
 @keyframes graphSlideIn {
     0% {

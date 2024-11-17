@@ -4,26 +4,24 @@ import './Graph.css'
 import Chart from './Chart'
 
 function Graph({ input, isGraphSlidingIn, isGraphSlidingOut, onButtonClick, onAnimationEnd }) {
-    const [fill, setFill] = useState("");  // Initially empty, will update based on `input`
-    const [text, setText] = useState(""); // State for the progressively displayed text
-    const [fullText, setFullText] = useState(""); // Initialize empty, will set dynamically
+    const [fill, setFill] = useState("");  
+    const [text, setText] = useState(""); 
+    const [fullText, setFullText] = useState("");
     const [animationEnded, setAnimationEnded] = useState(false);
   
-    // Update `fill` based on `input`
     useEffect(() => {
-      setFill(input === "" ? "-enter a word..." : "-" + input);  // Update `fill` when `input` changes
+      setFill(input === "" ? "-enter a word..." : "-" + input);  
     }, [input]);
   
-    // Dynamically update `fullText` when `fill` changes
     useEffect(() => {
       setText("");
       setFullText("" + fill);
     }, [fill]);
 
-     // Function to handle animation end and trigger the letter-by-letter text display
+    
   const handleAnimationEnd = () => {
-    onAnimationEnd(); // Call the parent onAnimationEnd callback
-    setAnimationEnded(true); // Set animation as finished
+    onAnimationEnd(); 
+    setAnimationEnded(true); 
   };
 
   const handleButtonClick = () => {
@@ -31,18 +29,17 @@ function Graph({ input, isGraphSlidingIn, isGraphSlidingOut, onButtonClick, onAn
     
   }
 
-  // Effect to update text letter by letter after animation ends
   useEffect(() => {
     if (animationEnded) {
       let index = 0;
       const interval = setInterval(() => {
         if (index < fullText.length - 1) {
-          setText((prev) => prev + fullText[index]); // Add the next letter to the text
+          setText((prev) => prev + fullText[index]); 
           index += 1;
         } else {
-          clearInterval(interval); // Stop once all letters are displayed
+          clearInterval(interval); 
         }
-      }, 50); // Delay between letters (adjust as necessary)
+      }, 50); 
     }
   }, [animationEnded, fullText]);
 

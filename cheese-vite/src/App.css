@@ -37,9 +37,5 @@ canvas {
     animation: titleSlideIn 1s forwards ease-in-out;
 }
 
-* {
-    border: none !important;
-}
-
 
 

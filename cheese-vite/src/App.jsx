@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import Title from './Title'
 import Graph from './Graph'
-import Chart from './Chart'
 import './App.css'
-
 
 function App() {
   const [input, setInput] = useState("");
