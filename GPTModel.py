@@ -112,9 +112,12 @@ for epoch in range(num_epochs):
 model.eval()  # Set the model to evaluation mode
 test_inputs = torch.tensor(test_data, dtype=torch.float32)
 test_labels_tensor = torch.tensor(test_labels, dtype=torch.float32)
+torch.save(model.state_dict(), 'rot_model.pth')
 
 with torch.no_grad():  # No gradient computation needed during evaluation
     predictions = model(test_inputs)
     # Calculate the test loss
     test_loss = criterion(predictions, test_labels_tensor)
     print(f'Test Loss: {test_loss.item():.4f}')
+
+
