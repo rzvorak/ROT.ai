@@ -1,21 +1,45 @@
 body{
     background-color: var(--clr-n700);
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
-    box-sizing: border-box;
 }
 
 .app__container {
-    border: 2px solid yellow;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    width: 80%;
-    height: 30rem;
-    
-    
+    width: 100vw;
+    height: 100vh;
 }
+
+canvas {
+    width: 100% !important;
+    height: 24rem !important;
+    margin-left: -0.25rem
+}
+
+.title-slideout{
+    animation: titleSlideOut 1s forwards ease-in-out;
+}
+
+.graph-slidein{
+    animation: graphSlideIn 1s forwards ease-in-out;
+}
+
+.graph-slideout{
+    animation: graphSlideOut 1s forwards ease-in-out;
+}
+
+.title-slidein{
+    animation: titleSlideIn 1s forwards ease-in-out;
+}
+
+* {
+    border: none !important;
+}
+
+
+
